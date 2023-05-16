@@ -1,0 +1,39 @@
+<?php
+/** @var \Adam\AccountCreateFields\Block\Template $block */
+?>
+<!-- <pre>
+
+</pre> -->
+<?php if($block->getTradeOptions()):?>
+
+<div class="field dental required">
+<label class="label" for="trade">
+  <span><?= $block->escapeHtml(__('Trade Professional?')) ?></span>
+</label>
+<div class="control">
+    <select name="trade" id="trade" data-validate="{required:true}">
+        <?php foreach($block->getTradeOptions() as $option):?>
+            <option value="<?= $block->escapeHtmlAttr($option['value']) ?>">
+            <?= $block->escapeHtmlAttr($option['label']) ?>
+            </option>    
+        <?php endforeach;?>
+    </select>
+</div>
+</div>
+
+<?php endif;?>
+
+<?php if($block->getHeardAboutUsOptions()):?>
+<div class="field heard_about_us required">
+    <label class="label" for="heard_about_us">
+        <span><?= $block->escapeHtml(__('Where did you hear about us?')) ?></span>
+    </label>
+    <div class="control">
+        <select name="heard_about_us" id="heard_about_us" data-validate="{required:true}">
+            <?php foreach ($block->getHeardAboutUsOptions() as $option) : ?>
+                <option value="<?= $block->escapeHtmlAttr($option['value']) ?>"><?= $block->escapeHtml($option['label']) ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+</div>
+<?php endif;?>
